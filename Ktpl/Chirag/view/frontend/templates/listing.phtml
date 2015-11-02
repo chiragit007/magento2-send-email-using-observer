@@ -1,0 +1,26 @@
+<?php
+$myCollection=$block->loadCollection();
+$mediaurl= 'http://localhost/magento2/pub/media/chirag/';
+?>
+<article>
+    <div class="slider" > 
+        <div class="jcarousel" id="jcarousel_slideshow"> 
+            <ul> 
+            <?php if ($myCollection && count($myCollection)):
+            foreach($myCollection as $record)
+            {?>
+            <li><img src="<?php echo $mediaurl . $record->getData('e_profile_picture');?>" alt="<?php echo $record->getData('e_profile_picture')?>"></li> 
+            <?php }
+
+            endif;?>
+            </ul> 
+        </div> 
+        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+        <a href="#" class="jcarousel-control-next">&rsaquo;</a> 
+          <p class="jcarousel-pagination"> </p>
+    </div>
+    <script type="text/javascript" language="javascript">
+    
+        require(['jcarousel_slider']);
+    </script>
+</article>
